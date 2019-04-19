@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    img{
+        width: 200px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 30px;
+    }
+    .box{
+        width: 300px;
+        display: inline-block;
+        height: 300px;
+        vertical-align: top;
+    }
+    .a{
+        margin-left: 600px;
+    }
+</style>
+<body>
+    <h1>
+        Dashboard for Animals
+    </h1>
+    
+    <% for (var e in allAnimals) {%>
+        <div class="box">
+            <a href="detail/<%= allAnimals[e]._id%>"><img src="<%= allAnimals[e].Image%>"></a>
+                <h4> Name:<%= allAnimals[e].Name%></h4>
+                <h4>Description:<%= allAnimals[e].Description%> </h4>
+        </div>
+        
+        
+    <% } %>
+    <br>
+    <div class="a"><a href="/new">Add A New Animal</a></div>
+    
+</body>
+</html>

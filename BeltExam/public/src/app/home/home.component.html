@@ -1,0 +1,26 @@
+
+<div style="margin-left: 200px"><a [routerLink]="['/new']" >Add A new Pet</a></div>
+<br>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Action</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody >
+
+    <tr *ngFor="let each of AllPets">
+        <td>{{each.name}}</td>
+        <td>{{each.type}}</td>
+      <td><button style="background-color: green; border-radius: 10px"[routerLink]="['/detail/'+ each._id]">Detail</button>| <button style="background-color: red; border-radius: 10px" [routerLink]="['/edit/'+ each._id]">Edit</button></td>
+      
+    </tr>
+  </tbody>
+</table>

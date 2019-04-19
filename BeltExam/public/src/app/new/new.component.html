@@ -1,0 +1,38 @@
+<div class="index">
+  <h3>Add a new pet</h3>
+  <form (submit)="OnNewPet()">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <!-- <p> {{ newPet | json }} </p> -->
+    <label> Pet's Name:</label>
+    <input type="text" name="newPet.name" [(ngModel)]="newPet.name" />
+    <br>
+    <span style="color: red">{{errorname}}</span>
+    <br>
+    <label> Pet's Type:</label>
+    <input type="text" name="newPet.type" [(ngModel)]="newPet.type" />
+    <br>
+    <span style="color: red">{{errortype}}</span>
+    <br>
+    <label> Pet's Description:</label>
+    <input type="text" name="newPet.description" [(ngModel)]="newPet.description" />
+    <br>
+    <span style="color: red">{{errordescription}}</span>
+    <br>
+    <label> Pet's Skills:</label>
+    <br>
+    <label>Skill1:</label>
+      <input type="text" name="newPet.skill1" [(ngModel)]="newPet.skill1" />
+      <br>
+    <br>
+    <label>Skill2:</label>
+      <input type="text" name="newPet.skill2" [(ngModel)]="newPet.skill2" />
+    <br>
+    <br>
+    <label>Skill3:</label>
+      <input type="text" name="newPet.skill3" [(ngModel)]="newPet.skill3" />
+    <br>
+    <br>
+    <input type="submit" value="Create " style="background-color:green; border-radius: 10px; width: 150px; margin-left: 150px" /> 
+    <button style="background-color: red; border-radius: 10px"[routerLink]="['/home']" >Cancel</button>
+  </form>
+</div>

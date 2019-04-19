@@ -1,0 +1,20 @@
+<a [routerLink]="['/home']">Home</a>
+<!-- index detail -->
+
+<div class="index">
+  <div>
+    <h3>{{OnePet.name}}</h3>
+  </div>
+  <p>Type: {{OnePet.type}}</p>
+  <p> Description: {{OnePet.description}}</p>
+  <p>Skill:</p>
+  <div class="box" style="margin-left: 20px">
+    <p>{{OnePet.skill1}}</p>
+    <p>{{OnePet.skill2}}</p>
+    <p>{{OnePet.skill3}}</p>
+  </div>
+  <p>Likes: {{OnePet.likes}} </p>
+
+  <button style="background-color: red; border-radius: 10px" (click)="Delete(OnePet)">Adopt this pet</button>
+ <button style="background-color: green; border-radius: 10px" (click)="Like(OnePet)" *ngIf="click">Like this pet</button>
+</div>

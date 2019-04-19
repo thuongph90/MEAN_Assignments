@@ -1,0 +1,38 @@
+<div class="index">
+  <h3>Edit {{OnePet.name}}</h3>
+  <form (submit)="Update()">
+    <!-- use the json pipe to see how OneTask changes in real time -->
+    <!-- <p> {{ OnePet | json }} </p> -->
+    <label> Pet's Name:</label>
+    <input type="text" name="OnePet.name" [(ngModel)]="OnePet.name" />
+    <br>
+    <span style="color: red">{{errorname}}</span>
+    <br>
+    <label> Pet's Type:</label>
+    <input type="text" name="OnePet.type" [(ngModel)]="OnePet.type" />
+    <br>
+   <span style="color: red">{{errortype}}</span>
+    <br>
+    <label> Pet's Description:</label>
+    <input type="text" name="OnePet.description" [(ngModel)]="OnePet.description" />
+    <br>
+    <span style="color: red">{{errordescription}}</span>
+    <br>
+    <label> Pet's Skills(Optional):</label>
+    <br>
+    <label>Skill1:</label>
+      <input type="text" name="OnePet.skill1" [(ngModel)]="OnePet.skill1" />
+      <br>
+    <br>
+    <label>Skill2:</label>
+      <input type="text" name="OnePet.skill2" [(ngModel)]="OnePet.skill2" />
+    <br>
+    <br>
+    <label>Skill3:</label>
+      <input type="text" name="OnePet.skill3" [(ngModel)]="OnePet.skill3" />
+    <br>
+    <br>
+    <input type="submit" value="Update " style="background-color:green; border-radius: 10px; width: 150px; margin-left: 150px" /> 
+    <button style="background-color: red; border-radius: 10px; margin-left: 60px"[routerLink]="['/home']" >Cancel</button>
+  </form>
+</div>

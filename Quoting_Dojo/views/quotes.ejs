@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+    </head>
+    <style>
+        .box{
+            border-radius: 10px;
+            width: 600px;
+            margin-left: 100px;
+            border: 1px solid black;
+            background-color: azure;
+        }
+        body{
+            background-color: grey;
+        }
+    </style>
+    <body>
+        <h3 style="text-align: center">
+            This is Quotes' Page
+        </h3>
+        <% for (var e in quotes) {%>
+            <div class="box">
+                    <h4> Name:<%= quotes[e].name%> at <%= quotes[e].createdAt.toDateString()%></h4>
+                    <h4>Quote:<%= quotes[e].quote%> </h4>
+            </div>
+            
+            
+        <% } %>
+        <a href="/"><button class="btn btn-primary">Go Back</button></a>
+    </body>
+</html>

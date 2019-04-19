@@ -1,0 +1,73 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+<style>
+    body {
+        background-color: rgb(224, 200, 204);
+        margin-left: 80px;
+    }
+
+    .box {
+        width: 800px;
+        height: 400px;
+        /* border: 1px solid grey; */
+        border-radius: 20px;
+        margin-left: 100px;
+        padding-left: 20px;
+    }
+</style>
+
+<body>
+        
+      
+    <h3 style="text-align: center">Welcome to message board</h3>
+    <% if(messages.error) { %>
+        <% for (var x of messages.error) { %>
+         <p style="color: red"><%= x %></p>
+        <% } %>
+    <% } %>
+    <form action="/createMessage" method="post">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" style=" width: 300px; border-radius: 20px" class="form-control" name="Name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label>Message:</label>
+            <textarea class="form-control" style=" width: 600px; border-radius: 20px" name="Message" rows="2" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="border-radius: 10px">Post</button>
+    </form>
+    <% for (var e in allMessages) {%>
+    <div class="box">
+        <div class="row">
+            <div class="col-sm-3"><h5><%= allMessages[e].Name%> :</h5></div>
+            <div class="col-sm-6"><%= allMessages[e].Message%></div>
+        </div>
+        <!-- ********COMMENTS********* -->
+        <% for (var x =0; x< allMessages[e].comment.length; x++) {%>
+            <div class="row"  style="margin-left: 10px;">
+                    <div class="col-sm-3" style="padding: 10px;" ><h6><%=allMessages[e].comment[x].Name%> comments:</h6></div>
+                    <div class="col-sm-4" style="padding: 10px; margin-left: -20px;"><%=allMessages[e].comment[x].Comment%></div>
+                </div>
+            <% } %>
+        <!-- *********COMMENT********* -->
+        <form action="/createComment/<%= allMessages[e]._id%>" method="post">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" style=" width: 200px; border-radius: 20px" class="form-control" name="Name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Comment:</label>
+                <textarea class="form-control" style=" width: 600px; border-radius: 20px" name="Comment" rows="1" placeholder="Enter your comment"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="border-radius: 10px">Comment</button>
+        </form>    
+    
+    </div>
+
+
+    <% } %>
+</body>
+
+</html>

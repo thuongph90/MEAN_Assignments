@@ -11,8 +11,10 @@ const routes: Routes = [
   { path: 'new',component: NewComponent },
   { path: 'detail/:id',component: DetailComponent },
   { path: 'edit/:id',component: EditComponent },
+  { path: '', component: HomeComponent },
   { path: '**', component: ErrorComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+
+  // { path: '', pathMatch: 'full', redirectTo: '/home' },
 
 ];
 
